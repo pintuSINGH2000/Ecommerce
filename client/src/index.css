@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.height-100{
+   height: 100% !important;
+}
+
+.margin-auto{
+  margin: auto auto;
+}
+
+.flexbox{
+  display: flex !important;
+}
+
+.flex-dir-col{
+  flex-direction: column;
+}
+
+.flex-dir-row{
+  flex-direction: row;
+}
+
+/* font-family: 'Playfair Display', serif; */
+/* font-family: 'Poppins', sans-serif; */
+
+/* navbar css */
+.navbar{
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  text-transform: uppercase;
+  box-shadow:  0px 8px 6px -6px gray;
+  --webkit-box-shadow:0px 8px 6px -6px gray;
+  border-bottom: solid grey !important;
+}
+
+.nav-link{
+  font-weight: 300 !important;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+.navbar-brand{
+  font-weight: 700;
+  font-family: 'roboto',sans-serif;
+  letter-spacing: 3px;
+}
+
+/* footer */
+
+.footer{
+  color: white;
+  padding: 25px;
+  background: #000000;
+  background: -webkit-linear-gradient(to right,rgb(43, 40, 40),rgb(26, 16, 16));
+  background: linear-gradient(to right,rgb(43, 40, 40),rgb(26, 16, 16));
+}
+
+.footer a{
+  text-decoration: none;
+  color:white;
+  padding:10px;
+}
+
+.footer a:hover {
+  color:cadetblue;
+  border-bottom: 1px solid white;
+}
+
+/* page not found */
+
+.pnf{
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title {
+  font-size:100px;
+  font-weight:700;
+}
+
+.pnf-heading {
+  font-weight:normal;
+}
+
+.pnf-btn {
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.contactus{
+  margin:2rem 4rem; 
+}
+
+
+/* login */
+
+/* register */
+.register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw ;
+  background: linear-gradient(90deg, rgb(211 209 253) 0%, rgb(149 108 159 / 43%) 35%, rgb(173 116 223) 100%);
+}
