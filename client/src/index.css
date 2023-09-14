@@ -117,3 +117,9 @@
   padding: 5vw ;
   background: linear-gradient(90deg, rgb(211 209 253) 0%, rgb(149 108 159 / 43%) 35%, rgb(173 116 223) 100%);
 }
+
+/* product */
+.product-link{
+  text-decoration: none !important;
+  color: black !important;
+}
