@@ -45,7 +45,7 @@ export const registerController = async (req,res) => {
             user
         })
 
-    }catch(message){
+    }catch(error){
         res.status(500).send({
             success:false,
             message:"Error is Registration",
@@ -97,7 +97,7 @@ export const loginController = async (req,res) => {
         })
 
 
-    }catch(message){
+    }catch(error){
         res.status(500).send({
             success:false,
             message: "message in login",

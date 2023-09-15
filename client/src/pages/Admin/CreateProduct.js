@@ -51,7 +51,7 @@ const CreateProduct = () => {
    if(res?.data?.success){
     toast.success(`product is Created`);
     setTimeout(() => {
-      navigate("/dashboard/admin/products");
+      navigate("/dashboard/admin/product");
     }, 1000);
    }else{
      toast.error(res?.data?.message)

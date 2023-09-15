@@ -12,10 +12,10 @@ router.post('/create-category', requireSignin, isAdmin, createCategoryController
 router.put('/update-category/:id', requireSignin, isAdmin, updateCategoryController)
 
 //get all category
-router.get('/get-category', requireSignin, isAdmin, categoryController)
+router.get('/get-category', categoryController)
 
 //get single category
-router.get('/single-category/:slug', requireSignin, isAdmin, singleCategoryController)
+router.get('/single-category/:slug', singleCategoryController)
 
 //delete
 router.delete('/delete-category/:id', requireSignin, isAdmin, deleteCategoryController)
