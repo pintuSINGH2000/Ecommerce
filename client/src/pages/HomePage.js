@@ -109,8 +109,6 @@ const HomePage = () => {
 
   return (
     <Layout title={"All Product - Best Offer"}>
-   
-      {total +"Pintu"}
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide"
@@ -166,7 +164,6 @@ const HomePage = () => {
         </div>
         <div className="col-md-10">
           <h1 className="text-center ff-Pd text-secondary">All Product</h1>
-          {JSON.stringify(products,null,4)}
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card mx-lg-5 mx-md-3 my-3 col-12 col-lg-3 col-md-5 bg-light" key={p._id}>
@@ -209,7 +206,6 @@ const HomePage = () => {
             ))}
           </div>
           <div className="m-2 p-3 text-center">
-            {total}
             {products && products.length < total && (
               <button
                 className="btn btn-warning"
