@@ -175,7 +175,6 @@ export const deleteProductController = async (req, res) => {
       message: "Product Deleted Successfully",
     });
   } catch (error) {
-    console.Console.log(error);
     res.status(500).send({
       success: false,
       message: "Error In Deleting Product",
@@ -196,7 +195,6 @@ export const productFiltersController = async (req, res) => {
       products,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "Error In Filtering Product",
@@ -213,7 +211,6 @@ export const productCountController = async (req, res) => {
       total,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "Error In Counting Product",
@@ -236,7 +233,6 @@ export const productListController = async (req, res) => {
       products,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "Error In Page List",
@@ -259,7 +255,6 @@ export const searchProductController = async (req, res) => {
       .select("-photo");
     res.json(result);
   } catch (error) {
-    console.log(error);
     res.status(400).send({
       success: false,
       message: "Error In Search Product",
@@ -285,7 +280,6 @@ export const similarProductController = async (req, res) => {
       products,
     });
   } catch (error) {
-    console.log(error);
     res.status(400).send({
       success: false,
       message: "Error In Search Product",
@@ -308,7 +302,6 @@ export const productCategoryController = async (req, res) => {
       category,
     });
   } catch (error) {
-    console.log(error);
     res.status(400).send({
       success: false,
       message: "Error In Search Product",
@@ -329,7 +322,6 @@ export const braintreeTokenController = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
     res.status(400).send({
       success: false,
       message: "Error In Payment",
@@ -358,7 +350,6 @@ export const braintreePaymentController = async (req, res) => {
       },
       function (error, result) {
         if (result?.success) {
-          console.log(result);
           const order = new orderModel({
             products: cart,
             payment: result,
@@ -371,7 +362,6 @@ export const braintreePaymentController = async (req, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
     res.status(400).send({
       success: false,
       message: "Error In Payment",
