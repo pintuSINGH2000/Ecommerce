@@ -14,21 +14,22 @@ const SearchInput = () => {
          setValues({...values,results:res?.data});
          navigate('/search');
         }catch(error){
-          console.log(error);
+          
         }
     }
   return (
-    <div>
-      <form className="d-flex mt-1 me-5" role="search" onSubmit={handleSubmit}>
+      <div>
+      <form className="d-flex mt-1 me-5" role="search" onSubmit={handleSubmit} >
         <input
-          className="form-control me-2"
+          className="form-control rounded-0"
           type="search"
-          placeholder="Search"
+          placeholder="search..."
           aria-label="Search"
           value={values.keyword}
           onChange={(e) => setValues({...values, keyword: e.target.value})}
+          style={{width:"15rem",height:"3rem"}}
         />
-        <button className="btn btn-outline-secondary" type="submit">
+        <button className="btn btn-dark rounded-0" type="submit">
           Search
         </button>
       </form>

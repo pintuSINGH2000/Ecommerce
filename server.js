@@ -8,10 +8,11 @@ import ForgotPasswordRoute from './routes/forgotPasswordRoute.js';
 import categoryRoutes from './routes/categoryRoute.js'
 import ProductRoutes from './routes/productRoute.js'
 import cors from 'cors';
+import path from 'path';
 
 
 //configure env
-dotenv.config();
+   dotenv.config();
 
 //databse config
 connectDB();
@@ -23,6 +24,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname),'./client/build'))
 
 //routes
 app.use('/api/v1/auth',authRoutes);
@@ -30,9 +32,10 @@ app.use('/api/v1/forgetpassword',ForgotPasswordRoute);
 app.use('/api/v1/category',categoryRoutes);
 app.use('/api/v1/product',ProductRoutes);
 
-// app.get("/",(req,res) => {
-//    res.send("<h1>Hello my friend</h1>");
-// });
+//rest api
+app.use('*',function(req,res) {
+   res.sendFile(path.join(__dirname,'./client/build/index.html'));
+})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,() => {

@@ -5,10 +5,10 @@ import  axios  from 'axios';
 import { toast } from 'react-toastify';
 import { Select } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import useCategory from '../../hooks/useCategory';
 const {Option} = Select;
 
 const CreateProduct = () => {
-  const [categories,setCategories] = useState([]);
   const [name,setName] = useState("");
   const [description,setDescription] = useState("");
   const [category,setCategory] =useState("");
@@ -17,22 +17,7 @@ const CreateProduct = () => {
   const [shipping,setShipping] = useState("");
   const [photo,setPhoto] = useState("");
   const navigate = useNavigate();
-
-  //get All category
-  const getAllCategory = async () => {
-    try {
-      const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
-      if (res?.data?.success) {
-        setCategories(res?.data?.category);
-      }
-    } catch (error) {
-      toast.error("Some thing went wrong in getting category");
-    }
-  };
-  useEffect(() => {
-    getAllCategory();
-     //eslint-disable-next-line 
-  }, []);
+  const categories = useCategory();
 
   //create product
   const handleCreate = async (e) => {
@@ -62,7 +47,7 @@ const CreateProduct = () => {
   }
   return (
     <Layout title={"Dashboard - Create Product"}>
-        <div className='container-fluid m-3 p-3'>
+        <div className='container-fluid p-3'>
         <div className='row'>
             <div className='col-md-3'>
                 <AdminMenu />

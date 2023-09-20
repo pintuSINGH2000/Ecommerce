@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { AiFillShopping } from "react-icons/ai";
 import { useAuth } from "../../context/auth";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
@@ -36,10 +35,10 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-              {" "}
-              <AiFillShopping />
-              E-Commerce
+             
+            <Link to="/" className="navbar-brand d-flex">
+            🛒E-Commerce
+             
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput/>
@@ -113,9 +112,9 @@ const Header = () => {
                   </li>
               )}
               <li className="nav-item">
-                <Badge count={cart?.length} showZero>
+              <Badge count={cart?.length} showZero>
                 <NavLink to="/cart" className="nav-link">
-                  Cart
+                <h4 className="fw-normal">Cart</h4>
                 </NavLink>
                 </Badge>
               </li>

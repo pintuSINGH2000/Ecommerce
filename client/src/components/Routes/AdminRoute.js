@@ -14,7 +14,6 @@ export default function AdminRoute() {
         const res = await axios.get(
           `${process.env.REACT_APP_API}/api/v1/auth/admin-auth`
         );
-        console.log("pintu", res);
         if (res.data.ok) {
           setOk(true);
         } else {

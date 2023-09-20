@@ -26,6 +26,10 @@
   flex-direction: row;
 }
 
+.ff-Pd{
+  font-family: 'Playfair Display', serif;
+}
+
 /* font-family: 'Playfair Display', serif; */
 /* font-family: 'Poppins', sans-serif; */
 
@@ -122,4 +126,18 @@
 .product-link{
   text-decoration: none !important;
   color: black !important;
+}
+
+/* Homepage */
+
+.p-img:hover{
+  padding: 1rem !important;
+}
+
+/* Categories */
+
+.categories{
+  height: 10vw !important;
+  color: white !important;
+  text-decoration: none !important;
 }
