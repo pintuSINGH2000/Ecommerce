@@ -22,7 +22,7 @@ const AdminOrder = () => {
   const getOrders = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/auth/all-orders`
+        `/api/v1/auth/all-orders`
       );
       setOrders(data);
     } catch (error) {
@@ -37,7 +37,7 @@ const AdminOrder = () => {
   const handleChange = async (orderId,value) => {
     try{
         const { data } = await axios.put(
-            `${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`,
+            `/api/v1/auth/order-status/${orderId}`,
             {status:value}
           );
           getOrders();
@@ -97,7 +97,7 @@ const AdminOrder = () => {
                       <div className="row card flex-row mb-2 p-3">
                         <div className="col-md-4">
                           <img
-                            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                            src={`/api/v1/product/product-photo/${p._id}`}
                             className="card-img-top p-2"
                             style={{ height: "12rem" }}
                             width="18rem"

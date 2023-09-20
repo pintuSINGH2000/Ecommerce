@@ -23,7 +23,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+        `/api/v1/product/product-list/${page}`
       );
       setProducts(data.products);
       setLoading(false);
@@ -33,9 +33,10 @@ const HomePage = () => {
     }
   };
   useEffect(() => {
-    if (!checked.length || !radio.length) getAllProduct();
-  }, [checked, radio]);
-
+    if (!checked.length && !radio.length){
+      getAllProduct();
+    } 
+  }, [checked.length, radio.length]);
 
   useEffect(() => {
     getTotal();
@@ -44,9 +45,9 @@ const HomePage = () => {
   //get Total Count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-count`
-      );
+      const { data } = await axios.post(
+        `/api/v1/product/product-count`,{ checked, radio }
+        );
       setTotal(data.total);
     } catch (error) {
       console.log(error);
@@ -56,8 +57,9 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      const { data } = await axios.post(
+        `/api/v1/product/product-filters/${page}`,
+        { checked, radio }
       );
       setProducts([...products, ...data?.products]);
       setLoading(false);
@@ -86,9 +88,10 @@ const HomePage = () => {
   //get filter
   const filterProduct = async () => {
     try {
+      
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
-        { checked, radio }
+        `/api/v1/product/product-filters/${page}`,
+        { checked, radio}
       );
       setProducts(data?.products);
     } catch (error) {
@@ -97,11 +100,17 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
+    if (checked.length || radio.length){
+      setPage(1);
+      getTotal();
+      filterProduct();
+    } 
   }, [checked, radio]);
 
   return (
     <Layout title={"All Product - Best Offer"}>
+   
+      {total +"Pintu"}
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide"
@@ -157,11 +166,12 @@ const HomePage = () => {
         </div>
         <div className="col-md-10">
           <h1 className="text-center ff-Pd text-secondary">All Product</h1>
+          {JSON.stringify(products,null,4)}
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card mx-lg-5 mx-md-3 my-3 col-12 col-lg-3 col-md-5 bg-light" key={p._id}>
                 <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                  src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top p-1 p-img"
                   style={{ height: "20rem" }}
                   alt={p.name}
@@ -199,6 +209,7 @@ const HomePage = () => {
             ))}
           </div>
           <div className="m-2 p-3 text-center">
+            {total}
             {products && products.length < total && (
               <button
                 className="btn btn-warning"

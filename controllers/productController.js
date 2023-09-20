@@ -185,16 +185,19 @@ export const deleteProductController = async (req, res) => {
 
 export const productFiltersController = async (req, res) => {
   try {
+    const perpage = 6;
+    const page = req.params.page ? req.params.page : 1;
     const { checked, radio } = req.body;
     let args = {};
     if (checked.length > 0) args.category = checked;
     if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
-    const products = await productModel.find(args).select("-photo");
+    const products = await productModel.find(args).select("-photo").skip((page - 1) * perpage).limit(perpage);
     res.status(200).send({
       success: true,
       products,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({
       success: false,
       message: "Error In Filtering Product",
@@ -205,7 +208,13 @@ export const productFiltersController = async (req, res) => {
 
 export const productCountController = async (req, res) => {
   try {
-    const total = await productModel.find({}).estimatedDocumentCount();
+    const { checked, radio } = req.body;
+    let args = {};
+    if (checked && checked.length > 0) args.category = checked;
+    if (radio && radio.length>0) args.price = { $gte: radio[0], $lte: radio[1] };
+
+    const total = await productModel.find(args).countDocuments()
+    console.log(total);
     res.status(200).send({
       success: true,
       total,

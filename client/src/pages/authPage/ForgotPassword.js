@@ -24,7 +24,7 @@ function ForgotPassword() {
       try {
         setLoading(true);
         const res = await axios.post(
-          `${process.env.REACT_APP_API}/api/v1/forgetpassword/sendOtp`,
+          `/api/v1/forgetpassword/sendOtp`,
           { email }
         );
         setLoading(false);
@@ -42,7 +42,7 @@ function ForgotPassword() {
       try {
         setLoading(true);
         const res = await axios.post(
-          `${process.env.REACT_APP_API}/api/v1/forgetpassword/otp-verify`,
+          `/api/v1/forgetpassword/otp-verify`,
           { email, otp }
         );
         setLoading(false);
@@ -60,7 +60,7 @@ function ForgotPassword() {
       try {
         setLoading(true);
         const res = await axios.post(
-          `${process.env.REACT_APP_API}/api/v1/forgetpassword/reset-password`,
+          `/api/v1/forgetpassword/reset-password`,
           { email, newPassword }
         );
         setLoading(false);

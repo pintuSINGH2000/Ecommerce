@@ -25,7 +25,7 @@ function OtpLogin() {
       try {
         setLoading(true);
         const res = await axios.post(
-          `${process.env.REACT_APP_API}/api/v1/forgetpassword/sendOtp`,
+          `/api/v1/forgetpassword/sendOtp`,
           { email,isOtpLogin:true  }
         );
         setLoading(false);
@@ -43,7 +43,7 @@ function OtpLogin() {
       try {
         setLoading(true);
         const res = await axios.post(
-          `${process.env.REACT_APP_API}/api/v1/forgetpassword/otp-verify`,
+          `/api/v1/forgetpassword/otp-verify`,
           { email, otp, isOtpLogin:true }
         );
         setLoading(false);

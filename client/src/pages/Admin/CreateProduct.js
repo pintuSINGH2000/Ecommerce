@@ -32,7 +32,7 @@ const CreateProduct = () => {
       productData.append("category",category);
       productData.append("shipping",shipping);
       
-   const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/create-product`,productData);
+   const res = await axios.post(`/api/v1/product/create-product`,productData);
    if(res?.data?.success){
     toast.success(`product is Created`);
     setTimeout(() => {

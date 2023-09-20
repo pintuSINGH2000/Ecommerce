@@ -24,7 +24,7 @@ const UpdateProduct = () => {
     //get Single Product
     const getSingleProduct = async () => {
       try{
-        const res=await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`);
+        const res=await axios.get(`/api/v1/product/get-product/${params.slug}`);
         if(res?.data?.success){
           setName(res.data.product.name);
           setDescription(res.data.product.description);
@@ -57,7 +57,7 @@ const UpdateProduct = () => {
         productData.append("category",category);
         productData.append("shipping",shipping);
         
-     const res = await axios.put(`${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`,productData);
+     const res = await axios.put(`/api/v1/product/update-product/${id}`,productData);
      if(res?.data?.success){
       toast.success(`product is Updated Successfully`);
       setTimeout(() => {
@@ -74,7 +74,7 @@ const UpdateProduct = () => {
       try{
         let answer = window.prompt("Are you sure want to delete this product ?");
         if(!answer) return;
-        const res = await axios.delete(`${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`);
+        const res = await axios.delete(`/api/v1/product/delete-product/${id}`);
         if(res?.data?.success){
           toast.success(`product is Deleted Successfully`);
           setTimeout(() => {
@@ -117,7 +117,7 @@ const UpdateProduct = () => {
                       </div>
                       ):
                       (<div className='text-center'>
-                      <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`} alt="prdouct_photo" height={'200px'} className='img img-responsive'/>
+                      <img src={`/api/v1/product/product-photo/${id}`} alt="prdouct_photo" height={'200px'} className='img img-responsive'/>
                       </div>
                       )}
                   </div>

@@ -11,7 +11,7 @@ const Order = () => {
 
   const getOrders = async () => {
     try{
-     const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/orders`);
+     const {data} = await axios.get(`/api/v1/auth/orders`);
      setOrders(data);
     }catch(error){
     console.log(error);
@@ -60,7 +60,7 @@ const Order = () => {
                 <div className="row card flex-row mb-2 p-3" >
                   <div className="col-md-4">
                     <img
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                      src={`/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top p-2"
                       style={{ height: "12rem" }}
                       width="18rem"

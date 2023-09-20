@@ -11,7 +11,7 @@ const Product = () => {
   const getAllProduct = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/get-product`
+        '/api/v1/product/get-product'
       );
 
       if (res?.data?.success) {
@@ -38,7 +38,7 @@ const Product = () => {
             {products?.map((p) => (
                 <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} className="product-link">
               <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
-                <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}  style={{height:"10rem"}} className="card-img-top" alt={p.name} />
+                <img src={`/api/v1/product/product-photo/${p._id}`}  style={{height:"10rem"}} className="card-img-top" alt={p.name} />
                 <div className="card-body">
                   <h5 className="card-title text-truncate">{p.name}</h5>
                   <p className="card-text text-truncate">
