@@ -33,6 +33,9 @@ function OtpLogin() {
           setMessage("");
           toast.success(res.data.message);
           setStep(2);
+        }else{
+           toast.success(res.data.message);
+          setMessage(res.data.message);
         }
       } catch (error) {
         setLoading(false);
@@ -59,6 +62,9 @@ function OtpLogin() {
           setTimeout(() => {
             navigate("/");
           }, 1000);
+        }else{
+          toast.error(res.data.message);
+          setMessage(res.data.message);
         }
       } catch (error) {
         setLoading(false);
